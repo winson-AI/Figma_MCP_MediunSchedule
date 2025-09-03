@@ -12,6 +12,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.safeContentPadding
 import androidx.compose.foundation.layout.size
@@ -65,8 +66,8 @@ private fun ScheduleScreen() {
             .padding(horizontal = 24.dp)
     ) {
         StatusBar()
-        TopBar()
-        Spacer(modifier = Modifier.height(20.dp))
+        //TopBar()
+        //Spacer(modifier = Modifier.height(20.dp))
         ScheduleTabs()
         Spacer(modifier = Modifier.height(24.dp))
         ScheduleCard(
@@ -170,14 +171,21 @@ private fun ScheduleTabs() {
         modifier = Modifier.fillMaxWidth(),
         horizontalArrangement = Arrangement.spacedBy(12.dp)
     ) {
-        TabPill(text = "Canceled Schedule", background = Color(0xFFFAFAFA), contentColor = Color(0xFF8696BB))
+        TabPill(
+            text = "Canceled Schedule",
+            background = Color(0xFFFAFAFA),
+            contentColor = Color(0xFF8696BB),
+            modifier = Modifier.weight(1f))
         TabPill(
             text = "Upcoming schedule",
             background = Color(0x1A63B4FF), // 10% opacity of #63B4FF
-            contentColor = Color(0xFF4894FE),
-            modifier = Modifier.weight(1f)
+            contentColor = Color(0xFF4894FE)
         )
-        TabPill(text = "Completed schedule", background = Color(0xFFFAFAFA), contentColor = Color(0xFF8696BB))
+        TabPill(
+            text = "Completed schedule",
+            background = Color(0xFFFAFAFA),
+            contentColor = Color(0xFF8696BB),
+            modifier = Modifier.weight(1f))
     }
 }
 
@@ -273,8 +281,7 @@ private fun BottomNav() {
     Row(
         modifier = Modifier
             .fillMaxWidth()
-            .background(Color(0xFFFFFFFF))
-            .padding(horizontal = 20.dp),
+            .background(Color(0xFFFFFFFF)),
         verticalAlignment = Alignment.CenterVertically,
         horizontalArrangement = Arrangement.spacedBy(12.dp)
     ) {
@@ -312,6 +319,7 @@ private fun BottomNav() {
         Box(
             modifier = Modifier
                 .width(58.dp)
+                .weight(1f)
                 .height(48.dp),
             contentAlignment = Alignment.Center
         ) {
